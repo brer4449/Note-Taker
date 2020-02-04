@@ -141,11 +141,3 @@ $noteText.on("keyup", handleRenderSaveBtn);
 
 // Gets and renders the initial list of notes
 getAndRenderNotes();
-
-//need classes for this assignment
-class Store {
-  readFile()
-  writeFile()
-  appendFile()
-  deleteFromFile()
-}
