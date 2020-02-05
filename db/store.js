@@ -12,13 +12,19 @@ class Store {
     });
   }
   writeFile() {
+    fs.appendFile(`${__dirname}/db.json`, "blah", err => {
+      if (err) {
+        throw Error(err);
+      }
+    });
+  }
+  appendFile() {
     // fs.appendFile(`${__dirname}/db.json`, err => {
     //   if (err) {
     //     throw Error(err);
     //   }
     // });
   }
-  appendFile() {}
   deleteFromFile() {}
 }
 
