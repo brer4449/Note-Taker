@@ -1,17 +1,11 @@
-const store = require("../db/store.js");
-
+const Store = require("../db/store.js");
+let store = new Store();
 module.exports = function(app) {
   app.get("/api/notes", function(req, res) {
-    res.json(store);
+    res.json(store.readFile());
   });
   app.post("/api/notes", function(req, res) {
-    // if (tableData.length < 5) {
-    //   tableData.push(req.body);
-    //   res.json(true);
-    // } else {
-    //   waitListData.push(req.body);
-    //   res.json(false);
-    // }
+    console.log("hello");
   });
   app.delete("api/notes/:id", function() {
     // tableData = [];
