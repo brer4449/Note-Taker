@@ -1,4 +1,5 @@
 const fs = require("fs");
+const path = require("path");
 
 //need classes for this assignment
 class Store {
@@ -11,21 +12,37 @@ class Store {
       console.log(data);
     });
   }
+
   writeFile() {
-    fs.appendFile(`${__dirname}/db.json`, "blah", err => {
+    let data = JSON.stringify(this.readFile());
+    console.log(data);
+    console.log(typeof data);
+    fs.writeFile(
+      path.join(__dirname, "/db.json"),
+      JSON.stringify("fuck you"),
+      err => {
+        if (err) {
+          throw Error(err);
+        }
+      }
+    );
+  }
+
+  appendFile() {
+    fs.appendFile(`${__dirname}/db.json`, "Hello World", err => {
       if (err) {
         throw Error(err);
       }
     });
   }
-  appendFile() {
-    // fs.appendFile(`${__dirname}/db.json`, err => {
-    //   if (err) {
-    //     throw Error(err);
-    //   }
-    // });
+
+  deleteFromFile() {
+    fs.deleteFromFile(`${__dirname}/db.json`, note.id, err => {
+      if (err) {
+        throw Error(err);
+      }
+    });
   }
-  deleteFromFile() {}
 }
 
 module.exports = Store;

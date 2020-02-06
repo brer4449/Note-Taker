@@ -11,7 +11,6 @@ let PORT = process.env.PORT || 3000;
 // Sets up the Express app to handle data parsing
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
-
 app.use(express.static("public"));
 
 require("./routing/api-routes.js")(app);
@@ -19,7 +18,9 @@ require("./routing/html-routes.js")(app);
 
 // Routes
 // =============================================================
-
+app.post("/api/notes");
+app.get("/api/notes");
+app.delete("/api/notes");
 // Starts the server to begin listening
 // =============================================================
 app.listen(PORT, function() {
