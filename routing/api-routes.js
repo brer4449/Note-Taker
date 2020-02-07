@@ -5,10 +5,10 @@ let store = new Store();
 module.exports = function(app) {
   app.get("/api/notes", function(req, res) {
     res.json(store.readFile());
+    //(MimeType = "application/json")
   });
 
   app.post("/api/notes", function(req, res) {
-    // console.log("hello");
     store.writeFile(req.body);
     // console.log(__dirname);
     res.sendFile(path.join(__dirname, "../db/db.json"));
