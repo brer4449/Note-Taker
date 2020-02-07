@@ -8,9 +8,9 @@ module.exports = function(app) {
   });
 
   app.post("/api/notes", function(req, res) {
-    console.log("hello");
-    store.writeFile();
-    console.log(__dirname);
+    // console.log("hello");
+    store.writeFile(req.body);
+    // console.log(__dirname);
     res.sendFile(path.join(__dirname, "../db/db.json"));
   });
 
